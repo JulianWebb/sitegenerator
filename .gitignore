@@ -1,0 +1,4 @@
+src/
+build/
+generator.config.json
+node_modules/
