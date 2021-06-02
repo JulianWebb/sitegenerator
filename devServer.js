@@ -8,7 +8,7 @@ const StaticFolder = path.join(__dirname, process.argv[2] || GeneratorConfig.out
 const ListenPort = process.argv[3] || GeneratorConfig.development.port || 3000;
 const AutoReload = GeneratorConfig.development.autoreload || true;
 
-app.use(express.static(StaticFolder))
+app.use(express.static(StaticFolder));
 
 if (AutoReload) {
   reload(app).then(() => {

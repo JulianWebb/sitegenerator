@@ -1,19 +1,26 @@
 {
-  "name": "site-gen",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "sitegenerator",
+  "version": "0.1.0",
+  "description": "Generates Site based on custom templates and content",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./generatePages.js",
+    "serve": "node ./devServer.js",
+    "build:serve": "npm run build && npm run serve",
+    "build:dev": "nodemon -w src/ -x \"npm run build:serve\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "site",
+    "generation"
+  ],
+  "author": "Julian Webb",
+  "license": "MIT",
+  "nodemonConfig": {
+    "watch": "src/"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
-    "markdown": "^0.5.0",
     "nodemon": "^2.0.7",
-    "reload": "^2.2.0"
+    "reload": "^3.1.1"
   }
 }
