@@ -104,6 +104,9 @@ function generatePages(config) {
     if (item.endsWith('.page.json')) {
       let pageJSON = require(item);
       let page = fillTemplate(Templates, pageJSON.template, pageJSON.keys);
+      if (GeneratorConfig.development.autoreload) {
+        page += '<script src="/reload/reload.js"></script>';
+      }
       let pageRelativePath = path.relative(SourceDirectory, item);
       let pageName = pageRelativePath.slice(0, -"page.json".length) + "html";
       let outputPath = path.join(OutputDirectory, pageName);
